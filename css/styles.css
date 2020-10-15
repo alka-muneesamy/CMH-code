@@ -7,47 +7,53 @@ h1,h2,h3,h4,h5,h6 {
 }
 /* Header section */
 .header-section {
-  background-color: #07689f;
-  margin-bottom: 100px;
+  background-color: #1d2d50;
+  margin-bottom: 20px;
 }
 .header-img {
-    padding: 0 20px 100px;
-    width:30%;
+    top:0;
+    width:20%;
   }
   .header-main {
     position:absolute;
-    width:26%;
+    width:10%;
     transform: rotate(25deg);
     right:40%;
   }
   /*category section */
   .content-section {
-    background-color:#cdc9c3;
-    font-weight: 400;
+      font-weight: 400;
   }
   .content-header {
-    margin: 10px auto;
-    padding:7% 3%;
-    font-size:2rem;
+    padding:4% 3%;
+    font-size:1rem;
     color:white;
+
     }
   .maintenance-class {
     background-color: #40a8c4;
+    box-model: border-box;
+    border:30px solid;
    }
   .care-class {
     background-color: #94b4a4;
+    border:30px solid;
   }
   .health-class {
     background-color: #ffc1fa;
+    border:30px solid;
   }
   .beauty-class {
     background-color: #a5ecd7;
+    border:30px solid;
   }
   .outdoor-class {
     background-color: #edc988;
+    border:30px solid;
   }
   .general-class {
     background-color: #ff9a76;
+    border:30px solid;
   }
   .footer-area {
     padding:20% 20%;
@@ -55,7 +61,7 @@ h1,h2,h3,h4,h5,h6 {
   /*------features -----*/
   #features {
     position:relative;
-    margin-bottom:100px;
+
   }
   .feature-class {
       font-weight:400;
