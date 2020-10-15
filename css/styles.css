@@ -1,0 +1,94 @@
+body {
+  font-family:Montserrat;
+  text-align: center;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family:Montserrat;
+}
+/* Header section */
+.header-section {
+  background-color: #07689f;
+  margin-bottom: 100px;
+}
+.header-img {
+    padding: 0 20px 100px;
+    width:30%;
+  }
+  .header-main {
+    position:absolute;
+    width:26%;
+    transform: rotate(25deg);
+    right:40%;
+  }
+  /*category section */
+  .content-section {
+    background-color:#cdc9c3;
+    font-weight: 400;
+  }
+  .content-header {
+    margin: 10px auto;
+    padding:7% 3%;
+    font-size:2rem;
+    color:white;
+    }
+  .maintenance-class {
+    background-color: #40a8c4;
+   }
+  .care-class {
+    background-color: #94b4a4;
+  }
+  .health-class {
+    background-color: #ffc1fa;
+  }
+  .beauty-class {
+    background-color: #a5ecd7;
+  }
+  .outdoor-class {
+    background-color: #edc988;
+  }
+  .general-class {
+    background-color: #ff9a76;
+  }
+  .footer-area {
+    padding:20% 20%;
+  }
+  /*------features -----*/
+  #features {
+    position:relative;
+    margin-bottom:100px;
+  }
+  .feature-class {
+      font-weight:400;
+  }
+  .feature-header {
+    padding-top: 5px;
+  }
+  .feature-text {
+     color:grey;
+  }
+  .icon-class {
+    color: #ee6f57;
+    margin-bottom: 1rem;
+    font-size:1em;
+  }
+  /*----Category */
+  .category-header {
+    font-weight:900;
+    position: absolute;
+    bottom: 0;
+    }
+  .category-img {
+    height:100px;
+    width:100px;
+  }
+  /* testimonial-section */
+  .testimonial-section{
+    padding-top:200px;
+    padding-bottom: 200px;
+    font-weight: 900;
+  }
+/* footer section */
+.footer-section {
+  background-color: #51adcf;
+  padding:5% 15%;
+}
