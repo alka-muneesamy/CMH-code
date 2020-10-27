@@ -1,0 +1,207 @@
+/****main page css */
+html,
+body {
+  font-family:Montserrat;
+  text-align: center;
+  height: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family:Montserrat;
+}
+/* Header section */
+.header-section {
+  background-color: #1d2d50;
+  margin-bottom: 20px;
+}
+.header-img {
+    top:0;
+    width:20%;
+  }
+  .header-main {
+    position:absolute;
+    width:10%;
+    transform: rotate(25deg);
+    right:40%;
+  }
+  /*category section */
+  .content-section {
+      font-weight: 400;
+  }
+  .content-header {
+    padding:4% 3%;
+    font-size:1rem;
+    color:white;
+
+    }
+  .maintenance-class {
+    background-color: #40a8c4;
+    box-model: border-box;
+    border:30px solid;
+   }
+  .care-class {
+    background-color: #94b4a4;
+    border:30px solid;
+  }
+  .health-class {
+    background-color: #ffc1fa;
+    border:30px solid;
+  }
+  .beauty-class {
+    background-color: #a5ecd7;
+    border:30px solid;
+  }
+  .outdoor-class {
+    background-color: #edc988;
+    border:30px solid;
+  }
+  .general-class {
+    background-color: #ff9a76;
+    border:30px solid;
+  }
+  .footer-area {
+    padding:20% 20%;
+  }
+
+  .login-btn {
+    padding:10px;
+    margin: auto 10px;
+  }
+  /*------features -----*/
+  #features {
+    position:relative;
+
+  }
+  .feature-class {
+      font-weight:400;
+  }
+  .feature-header {
+    padding-top: 5px;
+  }
+  .feature-text {
+     color:grey;
+  }
+  .icon-class {
+    color: #ee6f57;
+    margin-bottom: 1rem;
+    font-size:1em;
+  }
+  /*----Category */
+  .category-header {
+    font-weight:900;
+    position: absolute;
+    bottom: 0;
+    }
+  .category-img {
+    height:100px;
+    width:100px;
+  }
+  /* testimonial-section */
+  .testimonial-section{
+    padding-top:200px;
+    padding-bottom: 200px;
+    font-weight: 900;
+  }
+/* footer section */
+.footer-section {
+  background-color: #51adcf;
+  padding:5% 15%;
+}
+
+
+/***********  newletter CSS */
+
+.text-center {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  border:5px;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.top {
+  margin-bottom: 1px;
+  border: 1px solid;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.middle {
+  margin-bottom: 1px;
+  border: 1px solid;
+}
+.bottom {
+  margin-bottom: 1px;
+  border: 1px solid;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+/* vendor sign in form */
+
+.vendor-center {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  font-size:20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+.vendor-signin {
+  width: 70%;
+  padding: 5px;
+  margin: auto;
+  }
+
+.vendor-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.first-class {
+  margin-bottom: 5px;
+  border: 1px solid;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  float: right;
+}
+
+.second-class {
+  margin-bottom: 5px;
+  border: 1px solid;
+  float: right;
+}
+.last-class {
+  margin-bottom: 5px;
+  border: 1px solid;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  float: right;
+}
