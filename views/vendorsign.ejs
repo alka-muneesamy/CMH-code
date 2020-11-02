@@ -1,0 +1,87 @@
+<%- include("header") -%>
+<body >
+
+<!-- vendor details form section -->
+<section class="vendor-center">
+  <form class="vendor-signin" action="/vendorsign" method="post">
+    <h1 class="h2 mb-3 font-weight-bold">Create your account</h1>
+  <div class="form-group row">
+        <label for="fName" class="col-sm-2 col-sm-label font-weight-bold">First Name*</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control first-class" placeholder="First Name" required autofocus>
+    </div>
+       <label for="lName" class="col-sm-2 col-sm-label font-weight-bold">Last Name*</label>
+    <div class="col-sm-4">
+      <input type="text" class= "form-control second-class" placeholder="Last Name" required autofocus>
+     </div>
+  </div>
+  <div class="form-group row">
+     <label for="email" class="col-sm-2 col-sm-label font-weight-bold">Email*</label>
+     <div class="col-sm-4">
+        <input type="email"  class= "form-control second-class" placeholder="Email Address" required autofocus>
+     </div>
+  </div>
+
+  <div class= "form-group row" >
+    <label for="postcode" class="col-sm-2 col-sm-label font-weight-bold">Postcode*</label>
+     <div class="col-sm-3">
+      <input type="text" name="postcodeVal" class="form-control second-class" placeholder="Postcode" required autofocus>
+    </div>
+    <label for="houseNo" class="col-sm-2 col-sm-label font-weight-bold">House No*</label>
+    <div class="col-sm-3">
+     <input type="text" name="houseNoVal" class="form-control second-class" placeholder="House No" required autofocus>
+   </div>
+    <button type="submit" id= "poscodeSearch" class= "btn btn-md btn-primary font-weight-bold" name="list value="postcodeButton">Find my Address</button>
+  </div>
+   <div class="form-group row">
+      <label for="address" class="col-sm-2 col-sm-label font-weight-bold">Address Line 1*</label>
+    <div class="col-sm-10">
+       <input type="text" name = "addressLine1" class="form-control second-class" placeholder="Address Line 1" value=<%=console.log("hello")%>  autofocus>
+    </div>
+    </div>
+    <div class="form-group row">
+      <label for="address2" class="col-sm-2 col-sm-label font-weight-bold" >Address Line 2 (optional)</label>
+      <div class="col-sm-10">
+        <input type="text" name="addressLine2"  class="form-control second-class" placeholder="Address Line 2" value= <%=console.log(addresses)%> autofocus>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="city" class="col-sm-2 col-sm-label font-weight-bold" >City/Town </label>
+      <div class="col-sm-4" >
+        <input type="text" id="cityName" class="form-control second-class" placeholder="City" value=<%=addresses%>>
+      </div>
+      <label for="country" class="col-sm-2 col-sm-label font-weight-bold">County</label>
+      <div class="col-sm-4 form-group">
+        <input type="text" id = "county" class="form-control second-class" placeholder="County" value=<%=addresses%>>
+      </div>
+    </div>
+    <form class="category-class" action="/" method="post">
+      <h3 class= "col-sm-12 font-weight-bold">Select your help categories</h3>
+      <br>
+      <div class="form-group row">
+        <label for="category" class="col-sm-4 col-sm-label font-weight-bold">Category </label>
+        <label for="subCategory" class="col-sm-4 col-sm-label font-weight-bold"> Sub Category </label>
+        <label for="price" class="col-sm-3 col-sm-label font-weight-bold">Price per hour</label>
+      </div>
+       <div class="form-group row">
+
+        <div class="col-sm-4" >
+          <input type="text" class="form-control second-class" placeholder="Category">
+        </div>
+        <div class="col-sm-4" >
+          <input type="text" class="form-control second-class" placeholder="Subcategory">
+        </div>
+        <div class="col-sm-3">
+          <input type="number" class="form-control last-class" placeholder="Price per hour">
+        </div>
+        <button type="submit" class= "btn btn-secondary" name="list" value="newCategory">Add</button>
+      </div>
+        <button class="btn btn-primary btn-lg" type="submit">Sign up</button>
+    </form>
+
+
+  </form>
+
+</section>
+
+  <%- include("footer") -%>

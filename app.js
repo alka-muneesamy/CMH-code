@@ -2,75 +2,53 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const https= require("https");
-
 const app= express();
-app.use(bodyParser.urlencoded({extended: true}));
+const address = require(__dirname + "/getAddress.js");
+
+//define variables
+let addresses = [];
+
+
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.set("view engine","ejs");
+
 
 //display the homepage
 app.get("/",function(req,res)
 {
-res.sendFile(__dirname+"/index.html");
+res.render("index");
 });
 
 // vendor login
-app.get("/vendorsign", function(req,res)
+app.get("/vendorsign", function(req,res) {
+  res.render("vendorsign",{addresses:addresses});
+});
+
+app.post("/vendorsign", function(req,res)
 {
-  res.sendFile(__dirname+"/vendorsign.html");
-
-  const url= "https://api.getAddress.io/find/MK426AU?api-key=eAljQE8lIU2S5-0bU2qpRg28887";
-//  const jsonData = JSON.stringify(data);
- console.log(url);
-  https.get(url, function(response)
+  inputPostcode = req.body.postcodeVal;
+  inputHouse = req.body.houseNoVal;
+  const url= "https://api.getAddress.io/find/" +inputPostcode +"/" + inputHouse + "?api-key=eAljQE8lIU2S5-0bU2qpRg28887";
+  const request =https.get(url, function(response)
   {
-   console.log(response.statusCode);
-  response.on("data", function(data)
-  {
-   var postcodeResponse = JSON.parse(data);
-   var  address1 = postcodeResponse.addresses;
-   var addressKey = Object.keys(address1);
-   for(var i =0; i< addressKey.length; i++)
-   {
-     var houseNo = addressKey[i];
-     var addressArray =  address1[i];
-     console.log(addressArray);
-   }
-   console.log(address1);
-   //console.log(Object.keys(address1));
-
-   //const address1 = postcodeResponse.addresses.line_1;
-   //console.log(address1);
+     console.log(response.statusCode);
+     response.on("data", function(data)
+    {
+       let postcodeResponse = JSON.parse(data);
+       let address1 =  postcodeResponse.addresses;
+       let final =address(address1);
+       addresses.push(final);
+       res.redirect("/vendorsign");
+    });
  });
-});
-
-});
-// comment this
-//app.post("/",function(req,res)
-//{
-//  console.log("In the post function for postcode");
-//  const jsonData = JSON.stringify(data);
-//  console.log(jsonData);
-//  const postcode = req.body.postcode;
-//  const url= "https://api.getAddress.io/find/";
-//  const options = {
-//    method: "POST",
-//    auth: "Q2S-_YT2hEma3wO4sAQiyw28858"
-//  };
-//  const request =https.request(url,options, function(response)
-// {
-//   console.log(response.statusCode);
-//   response.on("data", function(data)
-//   {
-//     console.log(JSON.parse(data));
-//   });
-// }); //
-//});
+ });
 
 //display the signup for newsletter
 app.get("/newletter",function(req,res)
 {
-  res.sendFile(__dirname + "/signup.html");
+  res.render("signup");
 });
 
 app.post("/", function(req,res)
