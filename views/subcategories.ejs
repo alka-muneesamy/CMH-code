@@ -1,0 +1,20 @@
+<%- include("partials/header") -%>
+<h1 class="category-head">Add Subcategories</h1>
+<form action="/subcategories" method="post">
+  <%= foundSubcategories %>
+  <div class="row subcategory">
+    <div class="col-md-6">
+      <select class="form-control" name="category">
+         <% foundCategories.forEach(function(foundCategory) {  %>
+           <option value=""><%= foundCategory.name %></option>
+         <% }) %>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="subcategory" placeholder="Subcategory">
+    </div>
+    <button type="submit" class="btn btn-primary btn-md">+</button>
+  </div>
+
+</form>
+<%- include("partials/footer") -%>

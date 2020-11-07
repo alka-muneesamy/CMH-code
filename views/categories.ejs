@@ -1,0 +1,18 @@
+<%- include("partials/header") -%>
+
+  <h1 font-weight-bold class="category-head" > Add new Categories </h1>
+   <div class="form-group row">
+     <div class="col col-md-12  category">
+    <% categoryList.forEach (function(newCategory)  { %>
+            <p> <%= newCategory.name %> </p>
+      <% }) %>
+     </div>
+    <div class="col col-md-12 category">
+      <form  action="/categories" method="post">
+        <input type="text" name="newCategory" placeholder="New category">
+        <button type="submit" class = "btn btn-primary font-weight-bold" name="category">+</button>
+      </form>
+    </div>
+
+   </div>
+<%- include("partials/footer") -%>
