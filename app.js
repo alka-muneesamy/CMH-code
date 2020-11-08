@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb://localhost:27017/cmhDB", {
+mongoose.connect("mongodb+srv://alkak22:Prayer@2311@cluster0.tlu9i.mongodb.net/cmhDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -48,7 +48,7 @@ const defaultCategories = [category1, category2];
 //add data to subCategory categorySchema
 const subcategory1 = new SubCategory({
   name: "Plumber",
-  category: ["Maintenance"]
+  category: category1
 });
 
 const defaultSubcategories = [subcategory1];
@@ -158,11 +158,14 @@ app.post("/subcategories", function(req,res){
 
   const inputCategory = req.body.category;
   const inputSubcategory = req.body.subcategory;
-  const subcategory = new SubCategory ({
-    name: inputSubcategory,
-    category: [inputCategory]
-  });
-  subcategory.save();
+  const reqval = req;
+  console.log(inputCategory);
+  console.log(inputSubcategory);
+  // const subcategory = new SubCategory ({
+  //   name: inputSubcategory,
+  //   category: [inputCategory]
+  // });
+  // subcategory.save();
   res.redirect("/subcategories");
 });
 

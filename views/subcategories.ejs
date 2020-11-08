@@ -1,12 +1,28 @@
 <%- include("partials/header") -%>
 <h1 class="category-head">Add Subcategories</h1>
+ <div class="form-group row font-weight-bold text-decoration-underline  mb-3">
+ <div class= "col-md-6 form-control cat-label" >
+   <label> Category</label>
+ </div>
+ <div class= "col-md-6 form-control cat-label">
+   <label> Subcategory</label>
+ </div>
+ </div>
 <form action="/subcategories" method="post">
-  <%= foundSubcategories %>
-  <div class="row subcategory">
-    <div class="col-md-6">
-      <select class="form-control" name="category">
+  <div class="form-group row subcategory mb-3">
+  <!-- display the header of subctegory form -->
+<% foundSubcategories.forEach(function(foundSubcategory) { %>
+   <div class="col-md-6 form-control displaySub">
+     <%= foundSubcategory.category.name %>
+   </div>
+   <div class="col-md-6 form-control displaySub">
+      <%= foundSubcategory.name %>
+   </div>
+  <%  }); %>
+   <div class= "col-md-6 subcategory">
+      <select id = "category_id" class="form-control" name="category" select >
          <% foundCategories.forEach(function(foundCategory) {  %>
-           <option value=""><%= foundCategory.name %></option>
+           <option value="<%foundCategory.id %>"><%= foundCategory.name %></option>
          <% }) %>
       </select>
     </div>
