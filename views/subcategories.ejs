@@ -22,7 +22,7 @@
    <div class= "col-md-6 subcategory">
       <select id = "category_id" class="form-control" name="category" select >
          <% foundCategories.forEach(function(foundCategory) {  %>
-           <option value="<%foundCategory.id %>"><%= foundCategory.name %></option>
+           <option value="<%= foundCategory._id %>"><%= foundCategory.name %></option>
          <% }) %>
       </select>
     </div>

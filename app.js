@@ -15,25 +15,24 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb+srv://alkak22:Prayer@2311@cluster0.tlu9i.mongodb.net/cmhDB", {
+mongoose.connect("mongodb+srv://alkak22:Prayer@2205@cluster0.tlu9i.mongodb.net/cmhDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
 //create the new category and subcategory schema
-const categorySchema = {
+const categorySchema = new mongoose.Schema({
   name: String
-}
-
-const Category = mongoose.model("category", categorySchema);
+});
+const Category = mongoose.model("Category", categorySchema);
 
 //create the new subcategory categorySchema
-const subCategorySchema = {
+const subCategorySchema = new mongoose.Schema ({
   name: String,
   category: categorySchema
-}
+});
 
-const SubCategory = mongoose.model("subCategory", subCategorySchema);
+const SubCategory = mongoose.model("SubCategory", subCategorySchema);
 
 //add data to the category list
 const category1 = new Category({
@@ -86,11 +85,6 @@ app.post("/vendorsign", function(req, res) {
         county: newAddress[6]
       };
       addresses.push(finalAddress);
-      // res.write(finalAddress.line1);
-      // res.write(finalAddress.locality);
-      // res.write(finalAddress.city);
-      // res.write(finalAddress.county);
-      // res.send();
       res.redirect("/vendorsign");
     });
   });
@@ -117,7 +111,6 @@ app.get("/categories", function(req, res) {
 
 app.post("/categories", function(req, res) {
   const categoryName = req.body.newCategory;
-
   const category = new Category({
     name: categoryName
   });
@@ -141,32 +134,35 @@ app.get("/subcategories", function(req,res)
     } else {
       Category.find({}, function(err, foundCategories)
       {
-        if (foundCategories.length > 0)
-        {
+        if(!err) {
           res.render("subcategories", {foundCategories: foundCategories,
-                                       foundSubcategories:foundSubcategories});
-
+                                     foundSubcategories:foundSubcategories});
         } else {
-          console.log("No categories were found!!!!");
+          console.log("No categories were found " + err);
         }
       })
     }
-  })
+     })
 });
 
 app.post("/subcategories", function(req,res){
-
   const inputCategory = req.body.category;
   const inputSubcategory = req.body.subcategory;
-  const reqval = req;
   console.log(inputCategory);
   console.log(inputSubcategory);
-  // const subcategory = new SubCategory ({
-  //   name: inputSubcategory,
-  //   category: [inputCategory]
-  // });
-  // subcategory.save();
-  res.redirect("/subcategories");
+   Category.findOne({_id: inputCategory}, function(err, categoryOut)
+   {
+     const categoryName = categoryOut.name;
+     console.log(categoryName);
+    const subcategory = new SubCategory ({
+     name: inputSubcategory,
+     category: {_id: inputCategory,
+                name: categoryName}
+   });
+    subcategory.save();
+    res.redirect("/subcategories");
+    
+ });
 });
 
 //display the signup for newsletter
